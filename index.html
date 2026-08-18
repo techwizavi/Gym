@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avnit | 5-Day Gym & Meal Plan</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #059669;
+            --accent: #f59e0b;
+            --dark: #0f172a;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            padding-bottom: 80px;
+        }
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 24px 16px;
+            text-align: center;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+        header p { font-size: 0.85rem; color: #94a3b8; }
+        .user-badge {
+            display: inline-flex;
+            gap: 12px;
+            margin-top: 12px;
+            background: rgba(255,255,255,0.08);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #cbd5e1;
+        }
+        .container { max-width: 600px; margin: 0 auto; padding: 16px; }
+        .page { display: none; }
+        .page.active { display: block; }
+        .card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 18px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            border: 1px solid var(--border);
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--bg);
+        }
+        .card-title { font-size: 1.15rem; font-weight: 700; color: var(--dark); }
+        .badge-time {
+            background: #eff6ff;
+            color: var(--primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 12px;
+        }
+        .exercise-item { padding: 14px 0; border-bottom: 1px dashed var(--border); }
+        .exercise-item:last-child { border-bottom: none; }
+        .ex-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+        .ex-name { font-weight: 700; font-size: 0.95rem; color: var(--dark); }
+        .ex-target {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            background: #ecfdf5;
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+        .ex-equipment { font-size: 0.8rem; color: var(--text-light); margin-bottom: 6px; font-style: italic; }
+        .ex-notes { font-size: 0.85rem; color: var(--text); margin-bottom: 10px; }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #000;
+            margin-top: 8px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: 0;
+        }
+        .meal-box {
+            background: #f8fafc;
+            border-left: 4px solid var(--secondary);
+            padding: 12px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 12px;
+        }
+        .meal-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; }
+        .meal-desc { font-size: 0.85rem; color: var(--text-light); }
+        .nav-tabs {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: #ffffff;
+            display: flex;
+            justify-content: space-around;
+            border-top: 1px solid var(--border);
+            z-index: 1000;
+        }
+        .tab-btn {
+            flex: 1;
+            padding: 12px 8px;
+            border: none;
+            background: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+        .tab-btn.active { color: var(--primary); border-top: 3px solid var(--primary); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Avnit & Asna's 5-Day Plan</h1>
+        <p>Grace Road Gym • Lovu, Lautoka</p>
+        <div class="user-badge">
+            <span>🏋️‍♂️ Avnit: 120 kg</span>
+            <span>🏋️‍♀️ Asna: 80 kg</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- WORKOUTS PAGE -->
+        <div id="workouts" class="page active">
+            
+            <!-- DAY 1 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">Day 1: Chest & Push</span>
+                    <span class="badge-time">60 Mins</span>
+                </div>
+                <div class="exercise-item">
+                    <div class="ex-top"><span class="ex-name">1. Dumbbell Chest Press</span><span class="ex-target">3 Sets × 10-12 Reps</span></div>
+                    <div class="ex-equipment">Equipment: Flat Bench + Dumbbells</div>
+                    <div class="ex-notes">Feet flat on floor. Keep elbows at 45° angle while lowering weights.</div>
+                    <div class="video-container"><iframe src="https://www.youtube.com/embed/VmB1G1K7v94" allowfullscreen></iframe></div>
+                </div>
+                <div class="exercise-item">
+                    <div class="ex-top"><span class="ex-name">2. Dumbbell Overhead Press</span><span class="ex-target">3 Sets × 10-12 Reps</span></div>
+                    <div class="ex-equipment">Equipment: Bench + Dumbbells</div>
+                    <div class="ex-notes">Sit tall, press weights overhead without arching lower back.</div>
+                    <div class="video-container"><iframe src="https://www.youtube.com/embed/qEwKCR5JCog" allowfullscreen></iframe></div>
+                </div>
+                <div class="exercise-item">
+                    <div class="ex-top"><span class="ex-name">3. Forearm Plank</span><span class="ex-target">3 Sets × 30-45 Secs</span></div>
+                    <div class="ex-equipment">Equipment: Mat</div>
+                    <div class="ex-notes">Maintain a tight core and straight body line.</div>
+                    <div class="video-container"><iframe src="https://www.youtube.com/embed/pSHjTRCQxIw" allowfullscreen></iframe></div>
+                </div>
+            </div>
+
+            <!-- DAY 2 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">Day 2: Legs & Glutes</span>
+                    <span class="badge-time">60 Mins</span>
+                </div>
+                <div class="exercise-item">
+                    <div class="ex-top"><span class="ex-name">1. Dumbbell Goblet Squat</span><span class="ex-target">3 Sets × 10-12 Reps</span></div>
+                    <div class="ex-equipment">Equipment: 1 Dumbbell</div>
+                    <div class="ex-notes">Hold dumbbell at chest. Squat down low while keeping chest up.</div>
+                    <div class="video-container"><iframe src="https://www.youtube.com/embed/MeIiIdhvKL4" allowfullscreen></iframe></div>
+                </div>
+                <div class="exercise-item">
+                    <div class="ex-top"><span class="ex-name">2. Romanian Deadlifts (RDLs)</span><span class="ex-target">3 Sets × 10 Reps</span></div>
+                    <div class="ex-equipment">Equipment: Dumbbells</div>
+                    <div class="ex-notes">Push hips back, sliding dumbbells down legs to feel hamstring stretch.</div>
+                    <div class="video-container"><iframe src="https://www.youtube.com/embed/JCXUYuzwNrM" allowfullscreen></iframe></div>
+                </div>
+            </div>
+
+            <!-- DAY 3 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">Day 3: Back & Pull</span>
+                    <span class="badge-time">60 Mins</span>
+                </div>
+                <div class="exercise-item">
+                    <div class="ex-top"><span class="ex-name">1. Dumbbell Bent-Over Rows</span><span class="ex-target">3 Sets × 10-12 Reps</span></div>
+                    <div class="ex-equipment">Equipment: Dumbbells</div>
+                    <div class="ex-notes">Hinge forward 45°, pull dumbbells to hips, squeezing back muscles.</div>
+                    <div class="video-container"><iframe src="https://www.youtube.com/embed/6gVfVzR47kU" allowfullscreen></iframe></div>
+                </div>
+                <div class="exercise-item">
+                    <div class="ex-top"><span class="ex-name">2. Dumbbell Bicep Curls</span><span class="ex-target">3 Sets × 12 Reps</span></div>
+                    <div class="ex-equipment">Equipment: Dumbbells</div>
+                    <div class="ex-notes">Keep elbows pinned to ribs. Curl up without swinging body.</div>
+                    <div class="video-container"><iframe src="https://www.youtube.com/embed/ykJmrZ5v0Oo" allowfullscreen></iframe></div>
+                </div>
+            </div>
+
+            <!-- DAY 4 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">Day 4: Full Body Power</span>
+                    <span class="badge-time">60 Mins</span>
+                </div>
+                <div class="exercise-item">
+                    <div class="ex-top"><span class="ex-name">1. Dumbbell Deadlifts</span><span class="ex-target">3 Sets × 8-10 Reps</span></div>
+                    <div class="ex-equipment">Equipment: Dumbbells</div>
+                    <div class="ex-notes">Squat down with flat back, drive through feet to stand straight.</div>
+                    <div class="video-container"><iframe src="https://www.youtube.com/embed/lJ3QwaXMgfw" allowfullscreen></iframe></div>
+                </div>
+            </div>
+
+            <!-- DAY 5 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">Day 5: HIIT & Core</span>
+                    <span class="badge-time">60 Mins</span>
+                </div>
+                <div class="exercise-item">
+                    <div class="ex-top"><span class="ex-name">1. Kettlebell / Dumbbell Swings</span><span class="ex-target">3 Rounds × 45 Secs</span></div>
+                    <div class="ex-equipment">Equipment: Kettlebell or Dumbbell</div>
+                    <div class="ex-notes">Hip hinge movement! Drive hips forward to propel weight.</div>
+                    <div class="video-container"><iframe src="https://www.youtube.com/embed/YSxHifyI6s8" allowfullscreen></iframe></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- MEALS PAGE -->
+        <div id="meals" class="page">
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">Daily Meal Plan</span>
+                    <span class="badge-time">Fat Loss</span>
+                </div>
+                <div class="meal-box">
+                    <div class="meal-title">Breakfast</div>
+                    <div class="meal-desc">3 eggs + 1 slice wholemeal toast or oats.</div>
+                </div>
+                <div class="meal-box">
+                    <div class="meal-title">Lunch</div>
+                    <div class="meal-desc">200g Grilled Chicken/Fish + Rourou / salad + 1/2 cup cassava or rice.</div>
+                </div>
+                <div class="meal-box">
+                    <div class="meal-title">Dinner</div>
+                    <div class="meal-desc">200g Chicken/Lamb curry + local vegetables.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-tabs">
+        <button class="tab-btn active" onclick="switchTab('workouts')">🏋️‍♂️ Workouts</button>
+        <button class="tab-btn" onclick="switchTab('meals')">🥗 Meal Plan</button>
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
