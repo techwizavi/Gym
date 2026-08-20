@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avnit | 5-Day Gym & Meal Plan</title>
+    <title>Avnit & Asna | 5-Day Gym & Meal Plan</title>
     <style>
         :root {
             --primary: #2563eb;
             --primary-dark: #1d4ed8;
             --secondary: #059669;
-            --accent: #f59e0b;
+            --yt-red: #dc2626;
             --dark: #0f172a;
             --bg: #f8fafc;
             --card: #ffffff;
@@ -17,7 +17,9 @@
             --text-light: #64748b;
             --border: #e2e8f0;
         }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg);
@@ -25,6 +27,7 @@
             line-height: 1.5;
             padding-bottom: 80px;
         }
+
         header {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: white;
@@ -34,8 +37,10 @@
             border-bottom-right-radius: 20px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
+
         header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
         header p { font-size: 0.85rem; color: #94a3b8; }
+
         .user-badge {
             display: inline-flex;
             gap: 12px;
@@ -46,9 +51,11 @@
             font-size: 0.8rem;
             color: #cbd5e1;
         }
+
         .container { max-width: 600px; margin: 0 auto; padding: 16px; }
         .page { display: none; }
         .page.active { display: block; }
+
         .card {
             background: var(--card);
             border-radius: 16px;
@@ -57,6 +64,7 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.04);
             border: 1px solid var(--border);
         }
+
         .card-header {
             display: flex;
             justify-content: space-between;
@@ -65,7 +73,9 @@
             padding-bottom: 10px;
             border-bottom: 2px solid var(--bg);
         }
+
         .card-title { font-size: 1.15rem; font-weight: 700; color: var(--dark); }
+
         .badge-time {
             background: #eff6ff;
             color: var(--primary);
@@ -74,10 +84,13 @@
             padding: 4px 10px;
             border-radius: 12px;
         }
+
         .exercise-item { padding: 14px 0; border-bottom: 1px dashed var(--border); }
         .exercise-item:last-child { border-bottom: none; }
+
         .ex-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
         .ex-name { font-weight: 700; font-size: 0.95rem; color: var(--dark); }
+
         .ex-target {
             font-size: 0.8rem;
             font-weight: 700;
@@ -85,33 +98,31 @@
             background: #ecfdf5;
             padding: 2px 8px;
             border-radius: 6px;
+            white-space: nowrap;
         }
+
         .ex-equipment { font-size: 0.8rem; color: var(--text-light); margin-bottom: 6px; font-style: italic; }
-        .ex-notes { font-size: 0.85rem; color: var(--text); margin-bottom: 10px; }
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 10px;
-            background: #000;
-            margin-top: 8px;
+        .ex-notes { font-size: 0.85rem; color: var(--text); margin-bottom: 10px; line-height: 1.4; }
+
+        .video-btn {
+            display: inline-block;
+            margin-top: 6px;
+            padding: 8px 14px;
+            background: #fef2f2;
+            color: var(--yt-red);
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            border: 1px solid #fecaca;
         }
-        .video-container iframe {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            border: 0;
-        }
-        .meal-box {
-            background: #f8fafc;
-            border-left: 4px solid var(--secondary);
-            padding: 12px;
-            border-radius: 0 8px 8px 0;
-            margin-bottom: 12px;
-        }
+
+        .meal-section { margin-bottom: 16px; }
+        .meal-time { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--primary); margin-bottom: 6px; }
+        .meal-box { background: #f8fafc; border-left: 4px solid var(--secondary); padding: 12px; border-radius: 0 8px 8px 0; margin-bottom: 12px; }
         .meal-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; }
-        .meal-desc { font-size: 0.85rem; color: var(--text-light); }
+        .meal-desc { font-size: 0.85rem; color: var(--text-light); line-height: 1.4; }
+
         .nav-tabs {
             position: fixed;
             bottom: 0; left: 0; right: 0;
@@ -121,6 +132,7 @@
             border-top: 1px solid var(--border);
             z-index: 1000;
         }
+
         .tab-btn {
             flex: 1;
             padding: 12px 8px;
@@ -135,6 +147,7 @@
             align-items: center;
             gap: 4px;
         }
+
         .tab-btn.active { color: var(--primary); border-top: 3px solid var(--primary); }
     </style>
 </head>
@@ -150,6 +163,7 @@
     </header>
 
     <div class="container">
+
         <!-- WORKOUTS PAGE -->
         <div id="workouts" class="page active">
             
@@ -159,23 +173,64 @@
                     <span class="card-title">Day 1: Chest & Push</span>
                     <span class="badge-time">60 Mins</span>
                 </div>
+
                 <div class="exercise-item">
-                    <div class="ex-top"><span class="ex-name">1. Dumbbell Chest Press</span><span class="ex-target">3 Sets × 10-12 Reps</span></div>
+                    <div class="ex-top">
+                        <span class="ex-name">1. Treadmill & Arm Circles</span>
+                        <span class="ex-target">5 Mins</span>
+                    </div>
+                    <div class="ex-equipment">Equipment: Treadmill</div>
+                    <div class="ex-notes">Brisk 4.0 km/h warm-up walk combined with arm circles to lubricate shoulder joints.</div>
+                </div>
+
+                <div class="exercise-item">
+                    <div class="ex-top">
+                        <span class="ex-name">2. Dumbbell Chest Press</span>
+                        <span class="ex-target">3 Sets × 10-12 Reps</span>
+                    </div>
                     <div class="ex-equipment">Equipment: Flat Bench + Dumbbells</div>
-                    <div class="ex-notes">Feet flat on floor. Keep elbows at 45° angle while lowering weights.</div>
-                    <div class="video-container"><iframe src="https://www.youtube.com/embed/VmB1G1K7v94" allowfullscreen></iframe></div>
+                    <div class="ex-notes">Feet flat on floor for base stability. Lower weights with control keeping elbows at a 45° angle to protect shoulders. Press up directly over chest while exhaling.</div>
+                    <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+dumbbell+chest+press" target="_blank">▶ Watch @DeltaBolic Demo</a>
                 </div>
+
                 <div class="exercise-item">
-                    <div class="ex-top"><span class="ex-name">2. Dumbbell Overhead Press</span><span class="ex-target">3 Sets × 10-12 Reps</span></div>
+                    <div class="ex-top">
+                        <span class="ex-name">3. Dumbbell Overhead Shoulder Press</span>
+                        <span class="ex-target">3 Sets × 10-12 Reps</span>
+                    </div>
                     <div class="ex-equipment">Equipment: Bench + Dumbbells</div>
-                    <div class="ex-notes">Sit tall, press weights overhead without arching lower back.</div>
-                    <div class="video-container"><iframe src="https://www.youtube.com/embed/qEwKCR5JCog" allowfullscreen></iframe></div>
+                    <div class="ex-notes">Sit tall with back supported. Press dumbbells straight overhead without arching your lower back. Lower back to ear height with full control.</div>
+                    <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+dumbbell+shoulder+press" target="_blank">▶ Watch @DeltaBolic Demo</a>
                 </div>
+
                 <div class="exercise-item">
-                    <div class="ex-top"><span class="ex-name">3. Forearm Plank</span><span class="ex-target">3 Sets × 30-45 Secs</span></div>
-                    <div class="ex-equipment">Equipment: Mat</div>
-                    <div class="ex-notes">Maintain a tight core and straight body line.</div>
-                    <div class="video-container"><iframe src="https://www.youtube.com/embed/pSHjTRCQxIw" allowfullscreen></iframe></div>
+                    <div class="ex-top">
+                        <span class="ex-name">4. Incline Dumbbell Bench Press</span>
+                        <span class="ex-target">3 Sets × 10-12 Reps</span>
+                    </div>
+                    <div class="ex-equipment">Equipment: Incline Bench (30-45°) + Dumbbells</div>
+                    <div class="ex-notes">Set bench angle to 30-45 degrees. Press weights straight up over upper chest to build definition and shape up the upper torso.</div>
+                    <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+incline+dumbbell+press" target="_blank">▶ Watch @DeltaBolic Demo</a>
+                </div>
+
+                <div class="exercise-item">
+                    <div class="ex-top">
+                        <span class="ex-name">5. Dumbbell Overhead Triceps Extension</span>
+                        <span class="ex-target">3 Sets × 12 Reps</span>
+                    </div>
+                    <div class="ex-equipment">Equipment: 1 Dumbbell + Bench</div>
+                    <div class="ex-notes">Hold one dumbbell overhead with both hands forming a cup. Keep elbows pointing forward while lowering weight behind head, then extend up to squeeze triceps.</div>
+                    <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+overhead+tricep+extension" target="_blank">▶ Watch @DeltaBolic Demo</a>
+                </div>
+
+                <div class="exercise-item">
+                    <div class="ex-top">
+                        <span class="ex-name">6. Forearm Plank</span>
+                        <span class="ex-target">3 Sets × 30-45 Secs</span>
+                    </div>
+                    <div class="ex-equipment">Equipment: Exercise Mat</div>
+                    <div class="ex-notes">Rest on elbows and toes. Brace your abdomen tight, keeping hips in line with shoulders. Avoid letting lower back sag.</div>
+                    <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+plank" target="_blank">▶ Watch @DeltaBolic Demo</a>
                 </div>
             </div>
 
@@ -185,17 +240,63 @@
                     <span class="card-title">Day 2: Legs & Glutes</span>
                     <span class="badge-time">60 Mins</span>
                 </div>
+
                 <div class="exercise-item">
-                    <div class="ex-top"><span class="ex-name">1. Dumbbell Goblet Squat</span><span class="ex-target">3 Sets × 10-12 Reps</span></div>
-                    <div class="ex-equipment">Equipment: 1 Dumbbell</div>
-                    <div class="ex-notes">Hold dumbbell at chest. Squat down low while keeping chest up.</div>
-                    <div class="video-container"><iframe src="https://www.youtube.com/embed/MeIiIdhvKL4" allowfullscreen></iframe></div>
+                    <div class="ex-top">
+                        <span class="ex-name">1. Bodyweight Warm-Up Squats</span>
+                        <span class="ex-target">5 Mins</span>
+                    </div>
+                    <div class="ex-equipment">Equipment: Bodyweight</div>
+                    <div class="ex-notes">15 slow, controlled squats to warm up knee and hip joints before adding resistance.</div>
                 </div>
+
                 <div class="exercise-item">
-                    <div class="ex-top"><span class="ex-name">2. Romanian Deadlifts (RDLs)</span><span class="ex-target">3 Sets × 10 Reps</span></div>
+                    <div class="ex-top">
+                        <span class="ex-name">2. Dumbbell Goblet Squats</span>
+                        <span class="ex-target">3 Sets × 10-12 Reps</span>
+                    </div>
+                    <div class="ex-equipment">Equipment: 1 Dumbbell</div>
+                    <div class="ex-notes">Hold dumbbell vertically at chest height. Keep chest lifted high, push hips back and down until thighs are parallel to floor. Drive through heels to stand.</div>
+                    <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+goblet+squat" target="_blank">▶ Watch @DeltaBolic Demo</a>
+                </div>
+
+                <div class="exercise-item">
+                    <div class="ex-top">
+                        <span class="ex-name">3. Romanian Deadlifts (RDLs)</span>
+                        <span class="ex-target">3 Sets × 10 Reps</span>
+                    </div>
                     <div class="ex-equipment">Equipment: Dumbbells</div>
-                    <div class="ex-notes">Push hips back, sliding dumbbells down legs to feel hamstring stretch.</div>
-                    <div class="video-container"><iframe src="https://www.youtube.com/embed/JCXUYuzwNrM" allowfullscreen></iframe></div>
+                    <div class="ex-notes">Hip hinge movement: keep back flat, knees soft, and push hips straight back while sliding dumbbells close down shins. Squeeze glutes at top.</div>
+                    <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+romanian+deadlift" target="_blank">▶ Watch @DeltaBolic Demo</a>
+                </div>
+
+                <div class="exercise-item">
+                    <div class="ex-top">
+                        <span class="ex-name">4. Dumbbell Walking Lunges</span>
+                        <span class="ex-target">3 Sets × 10 Steps/Leg</span>
+                    </div>
+                    <div class="ex-equipment">Equipment: Dumbbells / Bodyweight</div>
+                    <div class="ex-notes">Step forward, dropping back knee towards floor in a controlled 90° angle. Drive through front heel to step forward into next lunge.</div>
+                    <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+walking+lunges" target="_blank">▶ Watch @DeltaBolic Demo</a>
+                </div>
+
+                <div class="exercise-item">
+                    <div class="ex-top">
+                        <span class="ex-name">5. Standing Calf Raises</span>
+                        <span class="ex-target">3 Sets × 15 Reps</span>
+                    </div>
+                    <div class="ex-equipment">Equipment: Dumbbells / Step Platform</div>
+                    <div class="ex-notes">Hold weights at sides, push up onto balls of feet, hold stretch at top for 1 second, then lower down controlled.</div>
+                    <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+calf+raises" target="_blank">▶ Watch @DeltaBolic Demo</a>
+                </div>
+
+                <div class="exercise-item">
+                    <div class="ex-top">
+                        <span class="ex-name">6. Incline Treadmill Walk</span>
+                        <span class="ex-target">10 Mins</span>
+                    </div>
+                    <div class="ex-equipment">Equipment: Treadmill</div>
+                    <div class="ex-notes">Set incline to 6-8% at 4.0-4.5 km/h. Do not hold handrails; engage core and glutes.</div>
                 </div>
             </div>
 
@@ -205,17 +306,64 @@
                     <span class="card-title">Day 3: Back & Pull</span>
                     <span class="badge-time">60 Mins</span>
                 </div>
+
                 <div class="exercise-item">
-                    <div class="ex-top"><span class="ex-name">1. Dumbbell Bent-Over Rows</span><span class="ex-target">3 Sets × 10-12 Reps</span></div>
-                    <div class="ex-equipment">Equipment: Dumbbells</div>
-                    <div class="ex-notes">Hinge forward 45°, pull dumbbells to hips, squeezing back muscles.</div>
-                    <div class="video-container"><iframe src="https://www.youtube.com/embed/6gVfVzR47kU" allowfullscreen></iframe></div>
+                    <div class="ex-top">
+                        <span class="ex-name">1. Light Rower / Treadmill Warm-Up</span>
+                        <span class="ex-target">5 Mins</span>
+                    </div>
+                    <div class="ex-equipment">Equipment: Treadmill or Rower</div>
+                    <div class="ex-notes">5 minutes light cardio to prime back and arm musculature.</div>
                 </div>
+
                 <div class="exercise-item">
-                    <div class="ex-top"><span class="ex-name">2. Dumbbell Bicep Curls</span><span class="ex-target">3 Sets × 12 Reps</span></div>
+                    <div class="ex-top">
+                        <span class="ex-name">2. Dumbbell Bent-Over Rows</span>
+                        <span class="ex-target">3 Sets × 10-12 Reps</span>
+                    </div>
                     <div class="ex-equipment">Equipment: Dumbbells</div>
-                    <div class="ex-notes">Keep elbows pinned to ribs. Curl up without swinging body.</div>
-                    <div class="video-container"><iframe src="https://www.youtube.com/embed/ykJmrZ5v0Oo" allowfullscreen></iframe></div>
+                    <div class="ex-notes">Hinge at hips to 45 degrees with flat back. Pull dumbbells up towards hip pockets, squeezing lat muscles and shoulder blades together.</div>
+                    <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+dumbbell+row" target="_blank">▶ Watch @DeltaBolic Demo</a>
+                </div>
+
+                <div class="exercise-item">
+                    <div class="ex-top">
+                        <span class="ex-name">3. Lat Pulldown</span>
+                        <span class="ex-target">3 Sets × 10-12 Reps</span>
+                    </div>
+                    <div class="ex-equipment">Equipment: Cable Machine / Barbell</div>
+                    <div class="ex-notes">Grasp bar wider than shoulders. Pull bar down to collarbone level while driving elbows down and back.</div>
+                    <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+lat+pulldown" target="_blank">▶ Watch @DeltaBolic Demo</a>
+                </div>
+
+                <div class="exercise-item">
+                    <div class="ex-top">
+                        <span class="ex-name">4. Single-Arm Dumbbell Row</span>
+                        <span class="ex-target">3 Sets × 10 Reps/Side</span>
+                    </div>
+                    <div class="ex-equipment">Equipment: Flat Bench + Dumbbell</div>
+                    <div class="ex-notes">Support knee and hand on flat bench. Row weight straight up to waist level without twisting torso.</div>
+                    <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+one+arm+dumbbell+row" target="_blank">▶ Watch @DeltaBolic Demo</a>
+                </div>
+
+                <div class="exercise-item">
+                    <div class="ex-top">
+                        <span class="ex-name">5. Dumbbell Bicep Curls</span>
+                        <span class="ex-target">3 Sets × 12 Reps</span>
+                    </div>
+                    <div class="ex-equipment">Equipment: Dumbbells</div>
+                    <div class="ex-notes">Pin elbows against ribcage. Curl dumbbells smoothly up to shoulder level without swinging body. Lower under full control.</div>
+                    <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+bicep+curls" target="_blank">▶ Watch @DeltaBolic Demo</a>
+                </div>
+
+                <div class="exercise-item">
+                    <div class="ex-top">
+                        <span class="ex-name">6. Hanging Knee Raises</span>
+                        <span class="ex-target">3 Sets × 12 Reps</span>
+                    </div>
+                    <div class="ex-equipment">Equipment: Pull-Up Bar / Station</div>
+                    <div class="ex-notes">Hang from bar with core engaged. Raise knees up toward chest smoothly without swinging body momentum.</div>
+                    <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+hanging+knee+raise" target="_blank">▶ Watch @DeltaBolic Demo</a>
                 </div>
             </div>
 
@@ -225,11 +373,45 @@
                     <span class="card-title">Day 4: Full Body Power</span>
                     <span class="badge-time">60 Mins</span>
                 </div>
+
                 <div class="exercise-item">
-                    <div class="ex-top"><span class="ex-name">1. Dumbbell Deadlifts</span><span class="ex-target">3 Sets × 8-10 Reps</span></div>
-                    <div class="ex-equipment">Equipment: Dumbbells</div>
-                    <div class="ex-notes">Squat down with flat back, drive through feet to stand straight.</div>
-                    <div class="video-container"><iframe src="https://www.youtube.com/embed/lJ3QwaXMgfw" allowfullscreen></iframe></div>
+                    <div class="ex-top">
+                        <span class="ex-name">1. Dumbbell Deadlifts</span>
+                        <span class="ex-target">3 Sets × 8-10 Reps</span>
+                    </div>
+                    <div class="ex-equipment">Equipment: Heavy Dumbbells</div>
+                    <div class="ex-notes">Stand shoulder-width apart. Squat down with flat back, grip dumbbells, drive through heels and extend hips to stand tall.</div>
+                    <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+dumbbell+deadlift" target="_blank">▶ Watch @DeltaBolic Demo</a>
+                </div>
+
+                <div class="exercise-item">
+                    <div class="ex-top">
+                        <span class="ex-name">2. Dumbbell Floor Press</span>
+                        <span class="ex-target">3 Sets × 10 Reps</span>
+                    </div>
+                    <div class="ex-equipment">Equipment: Dumbbells + Mat or Bench</div>
+                    <div class="ex-notes">Lie on floor/bench. Press dumbbells straight up over shoulders to build chest and triceps strength.</div>
+                    <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+floor+press" target="_blank">▶ Watch @DeltaBolic Demo</a>
+                </div>
+
+                <div class="exercise-item">
+                    <div class="ex-top">
+                        <span class="ex-name">3. Dumbbell Farmer's Walk</span>
+                        <span class="ex-target">3 Sets × 40 Meters</span>
+                    </div>
+                    <div class="ex-equipment">Equipment: Heavy Dumbbells</div>
+                    <div class="ex-notes">Hold heavy dumbbells at sides. Walk with proud tall posture and short controlled steps. Exceptional full-body conditioning exercise.</div>
+                    <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+farmers+walk" target="_blank">▶ Watch @DeltaBolic Demo</a>
+                </div>
+
+                <div class="exercise-item">
+                    <div class="ex-top">
+                        <span class="ex-name">4. Russian Twists</span>
+                        <span class="ex-target">3 Sets × 20 Reps</span>
+                    </div>
+                    <div class="ex-equipment">Equipment: Exercise Mat</div>
+                    <div class="ex-notes">Sit on mat, lean back slightly at 45°. Rotate torso side to side touching hands or weight to floor. Focus on abdominal rotation.</div>
+                    <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+russian+twists" target="_blank">▶ Watch @DeltaBolic Demo</a>
                 </div>
             </div>
 
@@ -239,52 +421,138 @@
                     <span class="card-title">Day 5: HIIT & Core</span>
                     <span class="badge-time">60 Mins</span>
                 </div>
+
                 <div class="exercise-item">
-                    <div class="ex-top"><span class="ex-name">1. Kettlebell / Dumbbell Swings</span><span class="ex-target">3 Rounds × 45 Secs</span></div>
-                    <div class="ex-equipment">Equipment: Kettlebell or Dumbbell</div>
-                    <div class="ex-notes">Hip hinge movement! Drive hips forward to propel weight.</div>
-                    <div class="video-container"><iframe src="https://www.youtube.com/embed/YSxHifyI6s8" allowfullscreen></iframe></div>
+                    <div class="ex-top">
+                        <span class="ex-name">1. Dumbbell Thrusters</span>
+                        <span class="ex-target">3 Rounds × 45 Secs</span>
+                    </div>
+                    <div class="ex-equipment">Equipment: Light Dumbbells</div>
+                    <div class="ex-notes">Hold dumbbells at shoulders. Perform full squat, then drive up forcefully pressing dumbbells overhead in one fluid motion.</div>
+                    <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+thrusters" target="_blank">▶ Watch @DeltaBolic Demo</a>
                 </div>
+
+                <div class="exercise-item">
+                    <div class="ex-top">
+                        <span class="ex-name">2. Kettlebell Swings</span>
+                        <span class="ex-target">3 Rounds × 45 Secs</span>
+                    </div>
+                    <div class="ex-equipment">Equipment: Kettlebell or Dumbbell</div>
+                    <div class="ex-notes">Hip hinge movement! Drive hips forward forcefully to propel weight to chest height.</div>
+                    <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+kettlebell+swing" target="_blank">▶ Watch @DeltaBolic Demo</a>
+                </div>
+
+                <div class="exercise-item">
+                    <div class="ex-top">
+                        <span class="ex-name">3. Mountain Climbers</span>
+                        <span class="ex-target">3 Rounds × 45 Secs</span>
+                    </div>
+                    <div class="ex-equipment">Equipment: Mat</div>
+                    <div class="ex-notes">In strong plank position, drive knees to chest alternating rapidly while keeping hips low.</div>
+                    <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+mountain+climbers" target="_blank">▶ Watch @DeltaBolic Demo</a>
+                </div>
+
+                <div class="exercise-item">
+                    <div class="ex-top">
+                        <span class="ex-name">4. Cardio Interval Finisher</span>
+                        <span class="ex-target">15 Mins</span>
+                    </div>
+                    <div class="ex-equipment">Equipment: Treadmill / Bike</div>
+                    <div class="ex-notes">Alternate 1 minute fast pace effort with 1 minute easy recovery.</div>
+                </div>
+            </div>
+
+            <!-- RECOVERY NOTE -->
+            <div class="card" style="background: #f1f5f9;">
+                <div class="card-header">
+                    <span class="card-title">Rest & Recovery</span>
+                    <span class="badge-time">Flexible</span>
+                </div>
+                <div class="ex-notes">Take rest days whenever your body needs them! Light 30-minute family walks, good hydration, and nutrition keep recovery on track.</div>
             </div>
 
         </div>
 
-        <!-- MEALS PAGE -->
+        <!-- MEAL PLAN PAGE -->
         <div id="meals" class="page">
             <div class="card">
                 <div class="card-header">
-                    <span class="card-title">Daily Meal Plan</span>
-                    <span class="badge-time">Fat Loss</span>
+                    <span class="card-title">Daily Nutrition Framework</span>
+                    <span class="badge-time">Fat Loss Focus</span>
                 </div>
-                <div class="meal-box">
-                    <div class="meal-title">Breakfast</div>
-                    <div class="meal-desc">3 eggs + 1 slice wholemeal toast or oats.</div>
+
+                <div class="meal-section">
+                    <div class="meal-time">Breakfast (7:30 AM)</div>
+                    <div class="meal-box">
+                        <div class="meal-title">High-Protein Morning Start</div>
+                        <div class="meal-desc">
+                            • 3 Eggs (scrambled or boiled) or Egg white omelet with spinach & tomatoes.<br>
+                            • 1 slice Wholemeal toast or small serving of oats.<br>
+                            • Black coffee or green tea (no sugar).
+                        </div>
+                    </div>
                 </div>
-                <div class="meal-box">
-                    <div class="meal-title">Lunch</div>
-                    <div class="meal-desc">200g Grilled Chicken/Fish + Rourou / salad + 1/2 cup cassava or rice.</div>
+
+                <div class="meal-section">
+                    <div class="meal-time">Lunch (12:30 PM)</div>
+                    <div class="meal-box">
+                        <div class="meal-title">Lean Protein & Local Greens</div>
+                        <div class="meal-desc">
+                            • 180g-200g Grilled Chicken Breast or Fish (Local Mahi-Mahi / Tuna).<br>
+                            • 1 cup Steamed Dalo leaves (Rourou) or mixed green salad with lemon dressing.<br>
+                            • 1/2 cup Boiled Cassava or Brown Rice.
+                        </div>
+                    </div>
                 </div>
-                <div class="meal-box">
-                    <div class="meal-title">Dinner</div>
-                    <div class="meal-desc">200g Chicken/Lamb curry + local vegetables.</div>
+
+                <div class="meal-section">
+                    <div class="meal-time">Pre-Gym Snack (4:30 PM)</div>
+                    <div class="meal-box">
+                        <div class="meal-title">Energy Booster</div>
+                        <div class="meal-desc">
+                            • 1 small banana or apple.<br>
+                            • Handful of almonds or 1 scoop Whey Protein in water.
+                        </div>
+                    </div>
                 </div>
+
+                <div class="meal-section">
+                    <div class="meal-time">Dinner (7:30 PM)</div>
+                    <div class="meal-box">
+                        <div class="meal-title">Recovery Meal</div>
+                        <div class="meal-desc">
+                            • 200g Lean Chicken / Lamb curry (light oil/coconut milk) or grilled fish.<br>
+                            • Plenty of local vegetables (cabbage, eggplant, okra).<br>
+                            • Keep starchy carbs low at dinner to maximize overnight fat burn.
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
+
     </div>
 
+    <!-- NAVIGATION TABS -->
     <div class="nav-tabs">
-        <button class="tab-btn active" onclick="switchTab('workouts')">🏋️‍♂️ Workouts</button>
-        <button class="tab-btn" onclick="switchTab('meals')">🥗 Meal Plan</button>
+        <button class="tab-btn active" onclick="switchTab('workouts')">
+            <span>🏋️‍♂️</span>
+            <span>Workouts</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('meals')">
+            <span>🥗</span>
+            <span>Meal Plan</span>
+        </button>
     </div>
 
     <script>
         function switchTab(tabId) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
             event.currentTarget.classList.add('active');
             window.scrollTo(0, 0);
         }
     </script>
 </body>
-</html>
+                        </html>
