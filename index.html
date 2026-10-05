@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avnit | 5-Day Workout, Meal & Weight Tracker Portal</title>
+    <title>Avnit | 5-Day Workout & Tracker Portal</title>
     <style>
         :root {
             --primary: #2563eb;
@@ -143,12 +143,23 @@
             border: 1px solid #fecaca;
         }
 
-        /* Tracker Styles */
+        /* Tracker Form & Log Styles */
         .form-group { margin-bottom: 12px; }
         .form-group label { display: block; font-size: 0.82rem; font-weight: 700; color: var(--text-light); margin-bottom: 4px; }
         .form-control { width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.9rem; }
         .btn-submit { width: 100%; padding: 12px; background: var(--secondary); color: white; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; margin-top: 8px; }
-        .log-entry { background: #f8fafc; border: 1px solid var(--border); padding: 10px 14px; border-radius: 8px; margin-top: 8px; font-size: 0.85rem; }
+        
+        .log-entry {
+            background: #f8fafc;
+            border-left: 4px solid var(--primary);
+            border-top: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 12px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 10px;
+            font-size: 0.88rem;
+        }
 
         .meal-section { margin-bottom: 16px; }
         .meal-time { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--primary); margin-bottom: 6px; }
@@ -191,19 +202,19 @@
 
     <header>
         <h1>Avnit's Fitness Portal</h1>
-        <p>Grace Road Gym • Day 37+ Consistency</p>
+        <p>Grace Road Gym • 5:30 AM Routine</p>
         <div class="user-badge">
-            <span>🏋️️‍♂️ Weight: 114.6 kg | Goal: Progressive Strength</span>
+            <span>🏋️‍♂️ Weight Goal: Progressive Strength</span>
         </div>
     </header>
 
     <!-- DAY SELECTOR TABS -->
     <div id="dayPills" class="day-nav">
-        <button class="day-pill active" onclick="showDay(0)">Day 1 (Tomorrow)</button>
+        <button class="day-pill active" onclick="showDay(0)">Day 1</button>
         <button class="day-pill" onclick="showDay(1)">Day 2</button>
         <button class="day-pill" onclick="showDay(2)">Day 3</button>
         <button class="day-pill" onclick="showDay(3)">Day 4</button>
-        <button class="day-pill" onclick="showDay(4)">Day 5 (Completed Today)</button>
+        <button class="day-pill" onclick="showDay(4)">Day 5</button>
     </div>
 
     <div class="container">
@@ -211,16 +222,16 @@
         <div id="workouts" class="page active">
             <div id="swipeArea">
                 
-                <!-- DAY 1 (ON DECK FOR TOMORROW) -->
+                <!-- DAY 1 -->
                 <div class="card day-card active" id="day-0">
                     <div class="card-header">
                         <span class="card-title">Day 1: Heavy Push & Chest</span>
-                        <span class="badge-time">5:30 AM Tomorrow</span>
+                        <span class="badge-time">5:30 AM</span>
                     </div>
 
                     <div class="exercise-item">
                         <div class="ex-top">
-                            <span class="ex-name">1. Incline Treadmill Walk (Heel Healed!)</span>
+                            <span class="ex-name">1. Incline Treadmill Walk</span>
                             <span class="ex-target">5 Mins Warm-Up</span>
                         </div>
                         <div class="ex-equipment">Equipment: Treadmill</div>
@@ -233,7 +244,7 @@
                             <span class="ex-target">4 Sets × 8-10 Reps</span>
                         </div>
                         <div class="ex-equipment">Equipment: Flat Bench + Barbell</div>
-                        <div class="ex-notes">Lower bar controlled to mid-chest. Drive up firmly through your heels and chest.</div>
+                        <div class="ex-notes">Lower bar controlled to mid-chest. Drive up firmly through your feet and chest.</div>
                         <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+barbell+bench+press" target="_blank">▶ Watch @DeltaBolic Demo</a>
                     </div>
 
@@ -272,7 +283,7 @@
                 <div class="card day-card" id="day-1">
                     <div class="card-header">
                         <span class="card-title">Day 2: Machine & Dumbbell Leg Power</span>
-                        <span class="badge-time">5:30 AM Start</span>
+                        <span class="badge-time">5:30 AM</span>
                     </div>
 
                     <div class="exercise-item">
@@ -319,7 +330,7 @@
                 <div class="card day-card" id="day-2">
                     <div class="card-header">
                         <span class="card-title">Day 3: Heavy Pull & Back</span>
-                        <span class="badge-time">5:30 AM Start</span>
+                        <span class="badge-time">5:30 AM</span>
                     </div>
 
                     <div class="exercise-item">
@@ -367,7 +378,7 @@
                 <div class="card day-card" id="day-3">
                     <div class="card-header">
                         <span class="card-title">Day 4: Full Body Power & Barbell</span>
-                        <span class="badge-time">5:30 AM Start</span>
+                        <span class="badge-time">5:30 AM</span>
                     </div>
 
                     <div class="exercise-item">
@@ -401,11 +412,11 @@
                     </div>
                 </div>
 
-                <!-- DAY 5 (COMPLETED TODAY) -->
+                <!-- DAY 5 -->
                 <div class="card day-card" id="day-4">
                     <div class="card-header">
                         <span class="card-title">Day 5: Treadmill HIIT & Core Burn</span>
-                        <span class="badge-time">Completed Today!</span>
+                        <span class="badge-time">5:30 AM</span>
                     </div>
 
                     <div class="exercise-item">
@@ -441,12 +452,12 @@
             </div>
         </div>
 
-        <!-- NEW WEIGHT LOG & PROGRESS TRACKER PAGE -->
+        <!-- PROGRESS TRACKER & LOG HISTORY PAGE -->
         <div id="tracker" class="page">
             <div class="card">
                 <div class="card-header">
                     <span class="card-title">Log Today's Weight & Lift Progress</span>
-                    <span class="badge-time">Track Your Gains</span>
+                    <span class="badge-time">Track Progress</span>
                 </div>
 
                 <form id="weightForm" onsubmit="saveLog(event)">
@@ -463,9 +474,9 @@
                     <div class="form-group">
                         <label for="liftType">Key Lift Tracked</label>
                         <select id="liftType" class="form-control">
-                            <option value="Leg Press">Leg Press (Baseline: 80 kg)</option>
-                            <option value="Barbell Deadlift">Barbell Deadlift (Baseline: 50 kg)</option>
-                            <option value="Dumbbell Press">Dumbbell Press (Baseline: 10 kg)</option>
+                            <option value="Leg Press">Leg Press</option>
+                            <option value="Barbell Deadlift">Barbell Deadlift</option>
+                            <option value="Dumbbell Press">Dumbbell Press</option>
                             <option value="Bench Press">Barbell Bench Press</option>
                         </select>
                     </div>
@@ -478,8 +489,10 @@
                     <button type="submit" class="btn-submit">Save Progress Log</button>
                 </form>
 
-                <div style="margin-top: 20px;">
-                    <h3 style="font-size: 1rem; color: var(--dark); margin-bottom: 10px;">Your Saved Progress Logs</h3>
+                <div style="margin-top: 24px;">
+                    <h3 style="font-size: 1rem; color: var(--dark); margin-bottom: 12px; border-bottom: 2px solid var(--bg); padding-bottom: 6px;">
+                        📋 Previous Weight & Lift Logs
+                    </h3>
                     <div id="logHistory">
                         <p style="font-size: 0.85rem; color: var(--text-light);">No saved entries yet. Log your first session above!</p>
                     </div>
@@ -567,7 +580,7 @@
     <!-- NAVIGATION TABS -->
     <div class="nav-tabs">
         <button id="tab-workouts" class="tab-btn active" onclick="switchTab('workouts')">
-            <span>🏋️️‍♂️</span>
+            <span>🏋️‍♂️</span>
             <span>Workouts</span>
         </button>
         <button id="tab-tracker" class="tab-btn" onclick="switchTab('tracker')">
@@ -621,7 +634,7 @@
             window.scrollTo(0, 0);
         }
 
-        // SAVE WEIGHT & LIFT LOG TO LOCALSTORAGE
+        // SAVE LOG TO LOCALSTORAGE
         function saveLog(e) {
             e.preventDefault();
             const date = document.getElementById('logDate').value;
@@ -641,7 +654,7 @@
             document.getElementById('logDate').valueAsDate = new Date();
         }
 
-        // LOAD SAVED LOGS FROM LOCALSTORAGE
+        // LOAD AND DISPLAY PAST LOGS
         function loadHistory() {
             const historyContainer = document.getElementById('logHistory');
             let history = JSON.parse(localStorage.getItem('avnitProgressLogs') || '[]');
@@ -655,8 +668,9 @@
             history.forEach(item => {
                 html += `
                     <div class="log-entry">
-                        <strong>📅 ${item.date}</strong> | Body Weight: <strong>${item.weight} kg</strong><br>
-                        🏋️ ${item.lift}: <strong>${item.liftWeight ? item.liftWeight + ' kg' : 'N/A'}</strong>
+                        <strong>📅 Date: ${item.date}</strong><br>
+                        • Body Weight: <strong>${item.weight} kg</strong><br>
+                        • ${item.lift}: <strong>${item.liftWeight ? item.liftWeight + ' kg' : 'N/A'}</strong>
                     </div>
                 `;
             });
