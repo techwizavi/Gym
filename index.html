@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avnit | 5-Day Workout & Tracker Portal</title>
+    <title>Avinit | 5-Day Workout & Tracker Portal</title>
     <style>
         :root {
             --primary: #2563eb;
@@ -201,7 +201,7 @@
 <body>
 
     <header>
-        <h1>Avnit's Fitness Portal</h1>
+        <h1>Avinit's Fitness Portal</h1>
         <p>Grace Road Gym • 5:30 AM Routine</p>
         <div class="user-badge">
             <span>🏋️‍♂️ Weight Goal: Progressive Strength</span>
@@ -504,7 +504,7 @@
         <div id="meals" class="page">
             <div class="card">
                 <div class="card-header">
-                    <span class="card-title">Avnit's Early Morning Workout Meal Schedule</span>
+                    <span class="card-title">Avinit's Early Morning Workout Meal Schedule</span>
                     <span class="badge-time">Fat Loss & Energy Fuel</span>
                 </div>
 
@@ -644,9 +644,9 @@
 
             const newEntry = { date, weight, lift, liftWeight };
 
-            let history = JSON.parse(localStorage.getItem('avnitProgressLogs') || '[]');
+            let history = JSON.parse(localStorage.getItem('AvinitProgressLogs') || '[]');
             history.unshift(newEntry);
-            localStorage.setItem('avnitProgressLogs', JSON.stringify(history));
+            localStorage.setItem('AvinitProgressLogs', JSON.stringify(history));
 
             alert('Progress Log Saved Successfully!');
             loadHistory();
@@ -657,7 +657,7 @@
         // LOAD AND DISPLAY PAST LOGS
         function loadHistory() {
             const historyContainer = document.getElementById('logHistory');
-            let history = JSON.parse(localStorage.getItem('avnitProgressLogs') || '[]');
+            let history = JSON.parse(localStorage.getItem('AvinitProgressLogs') || '[]');
 
             if(history.length === 0) {
                 historyContainer.innerHTML = '<p style="font-size: 0.85rem; color: var(--text-light);">No saved entries yet. Log your first session above!</p>';
