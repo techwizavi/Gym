@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avnit | 5-Day Workout & Meal Portal</title>
+    <title>Avnit | 5-Day Workout, Meal & Weight Tracker Portal</title>
     <style>
         :root {
             --primary: #2563eb;
@@ -143,6 +143,13 @@
             border: 1px solid #fecaca;
         }
 
+        /* Tracker Styles */
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; font-size: 0.82rem; font-weight: 700; color: var(--text-light); margin-bottom: 4px; }
+        .form-control { width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.9rem; }
+        .btn-submit { width: 100%; padding: 12px; background: var(--secondary); color: white; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; margin-top: 8px; }
+        .log-entry { background: #f8fafc; border: 1px solid var(--border); padding: 10px 14px; border-radius: 8px; margin-top: 8px; font-size: 0.85rem; }
+
         .meal-section { margin-bottom: 16px; }
         .meal-time { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--primary); margin-bottom: 6px; }
         .meal-box { background: #f8fafc; border-left: 4px solid var(--secondary); padding: 12px; border-radius: 0 8px 8px 0; margin-bottom: 12px; }
@@ -184,19 +191,19 @@
 
     <header>
         <h1>Avnit's Fitness Portal</h1>
-        <p>Grace Road Gym • Lovu, Lautoka</p>
+        <p>Grace Road Gym • Day 37+ Consistency</p>
         <div class="user-badge">
-            <span>🏋️‍♂️ Avnit | Height: 173 cm | Weight: 117 kg</span>
+            <span>🏋️️‍♂️ Weight: 114.6 kg | Goal: Progressive Strength</span>
         </div>
     </header>
 
     <!-- DAY SELECTOR TABS -->
     <div id="dayPills" class="day-nav">
-        <button class="day-pill active" onclick="showDay(0)">Day 1</button>
+        <button class="day-pill active" onclick="showDay(0)">Day 1 (Tomorrow)</button>
         <button class="day-pill" onclick="showDay(1)">Day 2</button>
         <button class="day-pill" onclick="showDay(2)">Day 3</button>
         <button class="day-pill" onclick="showDay(3)">Day 4</button>
-        <button class="day-pill" onclick="showDay(4)">Day 5</button>
+        <button class="day-pill" onclick="showDay(4)">Day 5 (Completed Today)</button>
     </div>
 
     <div class="container">
@@ -204,20 +211,20 @@
         <div id="workouts" class="page active">
             <div id="swipeArea">
                 
-                <!-- DAY 1 -->
+                <!-- DAY 1 (ON DECK FOR TOMORROW) -->
                 <div class="card day-card active" id="day-0">
                     <div class="card-header">
                         <span class="card-title">Day 1: Heavy Push & Chest</span>
-                        <span class="badge-time">60 Mins</span>
+                        <span class="badge-time">5:30 AM Tomorrow</span>
                     </div>
 
                     <div class="exercise-item">
                         <div class="ex-top">
-                            <span class="ex-name">1. Incline Treadmill Walk</span>
+                            <span class="ex-name">1. Incline Treadmill Walk (Heel Healed!)</span>
                             <span class="ex-target">5 Mins Warm-Up</span>
                         </div>
                         <div class="ex-equipment">Equipment: Treadmill</div>
-                        <div class="ex-notes">4.0 km/h speed at 4% incline to raise core body temp and prepare joints.</div>
+                        <div class="ex-notes">4.0 km/h at 4% incline to raise core body temp and prepare your chest/shoulder joints.</div>
                     </div>
 
                     <div class="exercise-item">
@@ -226,7 +233,7 @@
                             <span class="ex-target">4 Sets × 8-10 Reps</span>
                         </div>
                         <div class="ex-equipment">Equipment: Flat Bench + Barbell</div>
-                        <div class="ex-notes">Lower bar with control to mid-chest, drive up explosively while keeping feet flat on floor.</div>
+                        <div class="ex-notes">Lower bar controlled to mid-chest. Drive up firmly through your heels and chest.</div>
                         <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+barbell+bench+press" target="_blank">▶ Watch @DeltaBolic Demo</a>
                     </div>
 
@@ -235,8 +242,8 @@
                             <span class="ex-name">3. Incline Dumbbell Press</span>
                             <span class="ex-target">3 Sets × 10-12 Reps</span>
                         </div>
-                        <div class="ex-equipment">Equipment: Incline Bench + Dumbbells</div>
-                        <div class="ex-notes">Set bench at 30-45°. Press up over collarbone to target upper chest and shoulders.</div>
+                        <div class="ex-equipment">Target: 10 kg - 12.5 kg Dumbbells</div>
+                        <div class="ex-notes">Set bench at 30-45°. If 10 kg feels light, try 12.5 kg on your first 2 sets!</div>
                         <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+incline+dumbbell+press" target="_blank">▶ Watch @DeltaBolic Demo</a>
                     </div>
 
@@ -255,7 +262,7 @@
                             <span class="ex-name">5. Cable Triceps Pushdowns</span>
                             <span class="ex-target">3 Sets × 12-15 Reps</span>
                         </div>
-                        <div class="ex-equipment">Equipment: Cable Machine (Rope or Bar)</div>
+                        <div class="ex-equipment">Equipment: Cable Machine</div>
                         <div class="ex-notes">Keep elbows pinned to your ribs, extend fully downward to isolate triceps.</div>
                         <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+cable+tricep+pushdown" target="_blank">▶ Watch @DeltaBolic Demo</a>
                     </div>
@@ -265,7 +272,7 @@
                 <div class="card day-card" id="day-1">
                     <div class="card-header">
                         <span class="card-title">Day 2: Machine & Dumbbell Leg Power</span>
-                        <span class="badge-time">60 Mins</span>
+                        <span class="badge-time">5:30 AM Start</span>
                     </div>
 
                     <div class="exercise-item">
@@ -273,8 +280,8 @@
                             <span class="ex-name">1. Leg Press Machine</span>
                             <span class="ex-target">4 Sets × 10-12 Reps</span>
                         </div>
-                        <div class="ex-equipment">Equipment: Leg Press Machine</div>
-                        <div class="ex-notes">Feet shoulder-width on platform. Lower sled controlled to 90 degrees without rounding lower back. Drive through heels.</div>
+                        <div class="ex-equipment">Target: 80 kg → Move to 85-90 kg</div>
+                        <div class="ex-notes">Feet shoulder-width on platform. Lower sled controlled to 90°. Drive forcefully through your mid-foot/heels.</div>
                         <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+leg+press" target="_blank">▶ Watch @DeltaBolic Demo</a>
                     </div>
 
@@ -304,7 +311,7 @@
                             <span class="ex-target">15 Mins Finisher</span>
                         </div>
                         <div class="ex-equipment">Equipment: Treadmill</div>
-                        <div class="ex-notes">Set incline to 6-8% at 4.2 km/h. High calorie burn burner without heavy joint impact.</div>
+                        <div class="ex-notes">Set incline to 5-6% at 4.0 km/h. Smooth cardio burn to finish leg day.</div>
                     </div>
                 </div>
 
@@ -312,7 +319,7 @@
                 <div class="card day-card" id="day-2">
                     <div class="card-header">
                         <span class="card-title">Day 3: Heavy Pull & Back</span>
-                        <span class="badge-time">60 Mins</span>
+                        <span class="badge-time">5:30 AM Start</span>
                     </div>
 
                     <div class="exercise-item">
@@ -360,7 +367,7 @@
                 <div class="card day-card" id="day-3">
                     <div class="card-header">
                         <span class="card-title">Day 4: Full Body Power & Barbell</span>
-                        <span class="badge-time">60 Mins</span>
+                        <span class="badge-time">5:30 AM Start</span>
                     </div>
 
                     <div class="exercise-item">
@@ -368,7 +375,7 @@
                             <span class="ex-name">1. Barbell Deadlifts</span>
                             <span class="ex-target">4 Sets × 6-8 Reps</span>
                         </div>
-                        <div class="ex-equipment">Equipment: Barbell + Weight Plates</div>
+                        <div class="ex-equipment">Target: 40-50 kg → Move to 55-60 kg</div>
                         <div class="ex-notes">Chest up, flat back, drive through legs and extend hips. Highest calorie burning lift in the gym!</div>
                         <a class="video-btn" href="https://www.youtube.com/results?search_query=%40DeltaBolic+barbell+deadlift" target="_blank">▶ Watch @DeltaBolic Demo</a>
                     </div>
@@ -394,11 +401,11 @@
                     </div>
                 </div>
 
-                <!-- DAY 5 -->
+                <!-- DAY 5 (COMPLETED TODAY) -->
                 <div class="card day-card" id="day-4">
                     <div class="card-header">
                         <span class="card-title">Day 5: Treadmill HIIT & Core Burn</span>
-                        <span class="badge-time">60 Mins</span>
+                        <span class="badge-time">Completed Today!</span>
                     </div>
 
                     <div class="exercise-item">
@@ -434,18 +441,75 @@
             </div>
         </div>
 
-        <!-- 7:30 PM GYM TIMING MEAL PLAN PAGE -->
+        <!-- NEW WEIGHT LOG & PROGRESS TRACKER PAGE -->
+        <div id="tracker" class="page">
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">Log Today's Weight & Lift Progress</span>
+                    <span class="badge-time">Track Your Gains</span>
+                </div>
+
+                <form id="weightForm" onsubmit="saveLog(event)">
+                    <div class="form-group">
+                        <label for="logDate">Date</label>
+                        <input type="date" id="logDate" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bodyWeight">Body Weight (kg)</label>
+                        <input type="number" step="0.1" id="bodyWeight" class="form-control" placeholder="e.g., 114.6" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="liftType">Key Lift Tracked</label>
+                        <select id="liftType" class="form-control">
+                            <option value="Leg Press">Leg Press (Baseline: 80 kg)</option>
+                            <option value="Barbell Deadlift">Barbell Deadlift (Baseline: 50 kg)</option>
+                            <option value="Dumbbell Press">Dumbbell Press (Baseline: 10 kg)</option>
+                            <option value="Bench Press">Barbell Bench Press</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="liftWeight">Lift Weight Used (kg)</label>
+                        <input type="number" step="0.5" id="liftWeight" class="form-control" placeholder="e.g., 85">
+                    </div>
+
+                    <button type="submit" class="btn-submit">Save Progress Log</button>
+                </form>
+
+                <div style="margin-top: 20px;">
+                    <h3 style="font-size: 1rem; color: var(--dark); margin-bottom: 10px;">Your Saved Progress Logs</h3>
+                    <div id="logHistory">
+                        <p style="font-size: 0.85rem; color: var(--text-light);">No saved entries yet. Log your first session above!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MEAL PLAN PAGE -->
         <div id="meals" class="page">
             <div class="card">
                 <div class="card-header">
-                    <span class="card-title">Avnit's Night Workout Meal Schedule</span>
-                    <span class="badge-time">Fat Loss & Muscle Fuel</span>
+                    <span class="card-title">Avnit's Early Morning Workout Meal Schedule</span>
+                    <span class="badge-time">Fat Loss & Energy Fuel</span>
                 </div>
 
                 <div class="meal-section">
-                    <div class="meal-time">Breakfast (8:00 AM)</div>
+                    <div class="meal-time">Pre-Workout Snack (5:00 AM)</div>
                     <div class="meal-box">
-                        <div class="meal-title">High-Protein Metabolic Start</div>
+                        <div class="meal-title">Quick Digesting Morning Energy</div>
+                        <div class="meal-desc">
+                            • 1 Small Banana or 1 glass of water with a pinch of salt & lemon.<br>
+                            • <i>Eaten 20-30 mins before 5:30 AM session so your body has quick fuel without a heavy stomach.</i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="meal-section">
+                    <div class="meal-time">Post-Workout Breakfast (7:15 AM - 7:30 AM)</div>
+                    <div class="meal-box">
+                        <div class="meal-title">Muscle Recovery & Metabolism Engine</div>
                         <div class="meal-desc">
                             • 3 Whole Eggs (Scrambled or Boiled) with spinach/tomatoes.<br>
                             • 1 slice Wholemeal toast or small bowl of oatmeal.<br>
@@ -455,37 +519,35 @@
                 </div>
 
                 <div class="meal-section">
-                    <div class="meal-time">Lunch (1:00 PM)</div>
+                    <div class="meal-time">Lunch (12:30 PM - 1:00 PM)</div>
                     <div class="meal-box">
-                        <div class="meal-title">Lean Protein & Local Complex Carbs</div>
+                        <div class="meal-title">Lean Protein & Refuel Carbs</div>
                         <div class="meal-desc">
                             • 200g Grilled Chicken Breast or Local Fish (Mahi-Mahi/Tuna).<br>
                             • 1 cup Steamed Dalo leaves (Rourou) or fresh green salad with lemon.<br>
-                            • 1/2 cup Boiled Cassava or Brown Rice.
+                            • <b>1/2 cup Boiled Cassava or Brown Rice</b> (ideal time for complex carbs to replenish glycogen after morning workout).
                         </div>
                     </div>
                 </div>
 
                 <div class="meal-section">
-                    <div class="meal-time">Pre-Gym Fuel (5:30 PM - 6:00 PM)</div>
+                    <div class="meal-time">Afternoon Snack (4:30 PM)</div>
                     <div class="meal-box">
-                        <div class="meal-title">Sustained Energy for 7:30 PM Gym</div>
+                        <div class="meal-title">Sustained Fuel</div>
                         <div class="meal-desc">
-                            • 1 Banana or Apple.<br>
-                            • Handful of almonds or 1 scoop Whey Protein in water.<br>
-                            • <i>Eaten 1.5 - 2 hours before your workout so your stomach is settled.</i>
+                            • Handful of almonds or 1 scoop Whey Protein in water (or 1 hard-boiled egg).
                         </div>
                     </div>
                 </div>
 
                 <div class="meal-section">
-                    <div class="meal-time">Post-Gym Dinner (8:45 PM - 9:15 PM)</div>
+                    <div class="meal-time">Dinner (7:30 PM)</div>
                     <div class="meal-box">
-                        <div class="meal-title">Muscle Recovery & Overnight Fat Loss</div>
+                        <div class="meal-title">Overnight Muscle Repair & Fat Oxidation</div>
                         <div class="meal-desc">
                             • 220g Lean Chicken / Lamb curry (prepared with light oil) or Grilled Fish.<br>
                             • Large serving of local vegetables (cabbage, eggplant, bhindi).<br>
-                            • <b>Carb Control Rule:</b> Keep starchy carbs (cassava/rice) very low or zero at this late dinner to maximize overnight fat oxidation while resting.
+                            • <b>Carb Control Rule:</b> Keep starchy carbs (cassava/rice/dalo) zero or near-zero at dinner to maximize overnight body fat burn while sleeping.
                         </div>
                     </div>
                 </div>
@@ -494,7 +556,7 @@
                     <div class="meal-time">Hydration Target</div>
                     <div class="meal-box">
                         <div class="meal-title">4 Liters Daily</div>
-                        <div class="meal-desc">Drink water consistently throughout the day and keep a bottle on hand during your 7:30 PM session at Grace Road Gym.</div>
+                        <div class="meal-desc">Drink water consistently throughout the day, starting right when you wake up at 5:00 AM.</div>
                     </div>
                 </div>
 
@@ -505,8 +567,12 @@
     <!-- NAVIGATION TABS -->
     <div class="nav-tabs">
         <button id="tab-workouts" class="tab-btn active" onclick="switchTab('workouts')">
-            <span>🏋️‍♂️</span>
+            <span>🏋️️‍♂️</span>
             <span>Workouts</span>
+        </button>
+        <button id="tab-tracker" class="tab-btn" onclick="switchTab('tracker')">
+            <span>📈</span>
+            <span>Tracker</span>
         </button>
         <button id="tab-meals" class="tab-btn" onclick="switchTab('meals')">
             <span>🥗</span>
@@ -516,6 +582,9 @@
 
     <script>
         let currentDay = 0;
+
+        // Set default date picker to today
+        document.getElementById('logDate').valueAsDate = new Date();
 
         function showDay(dayIndex) {
             currentDay = dayIndex;
@@ -545,7 +614,53 @@
                 dayNav.style.display = 'none';
             }
 
+            if(tabId === 'tracker') {
+                loadHistory();
+            }
+
             window.scrollTo(0, 0);
+        }
+
+        // SAVE WEIGHT & LIFT LOG TO LOCALSTORAGE
+        function saveLog(e) {
+            e.preventDefault();
+            const date = document.getElementById('logDate').value;
+            const weight = document.getElementById('bodyWeight').value;
+            const lift = document.getElementById('liftType').value;
+            const liftWeight = document.getElementById('liftWeight').value;
+
+            const newEntry = { date, weight, lift, liftWeight };
+
+            let history = JSON.parse(localStorage.getItem('avnitProgressLogs') || '[]');
+            history.unshift(newEntry);
+            localStorage.setItem('avnitProgressLogs', JSON.stringify(history));
+
+            alert('Progress Log Saved Successfully!');
+            loadHistory();
+            document.getElementById('weightForm').reset();
+            document.getElementById('logDate').valueAsDate = new Date();
+        }
+
+        // LOAD SAVED LOGS FROM LOCALSTORAGE
+        function loadHistory() {
+            const historyContainer = document.getElementById('logHistory');
+            let history = JSON.parse(localStorage.getItem('avnitProgressLogs') || '[]');
+
+            if(history.length === 0) {
+                historyContainer.innerHTML = '<p style="font-size: 0.85rem; color: var(--text-light);">No saved entries yet. Log your first session above!</p>';
+                return;
+            }
+
+            let html = '';
+            history.forEach(item => {
+                html += `
+                    <div class="log-entry">
+                        <strong>📅 ${item.date}</strong> | Body Weight: <strong>${item.weight} kg</strong><br>
+                        🏋️ ${item.lift}: <strong>${item.liftWeight ? item.liftWeight + ' kg' : 'N/A'}</strong>
+                    </div>
+                `;
+            });
+            historyContainer.innerHTML = html;
         }
 
         // TOUCH SWIPE DETECTION FOR DAYS
